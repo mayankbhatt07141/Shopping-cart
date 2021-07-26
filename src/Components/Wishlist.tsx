@@ -1,11 +1,11 @@
-import React from 'react'
-import "./Wishlist.css";
+import React from 'react';
+import Cartdetails from './Cartdetails'
+import './Wishlist.css';
+
 function Wishlist() {
     return (
-        <div>
-            <h1>wishlist</h1>
-        </div>
-    )
+        <div><Cartdetails/></div>
+    )        
 }
 
-export default Wishlist
+export default Wishlist;

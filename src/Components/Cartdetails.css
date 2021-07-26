@@ -1,0 +1,49 @@
+.container {
+  flex-direction: column;
+  height: auto;
+  width: 50vh;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 75%);
+  margin: 3%;
+
+  background-color: #fff;
+  display: flex;
+  color: rebeccapurple;
+  font-size: 29px;
+}
+.Cart {
+  font-size: 25px;
+}
+.checkout {
+  padding: 15px;
+  font-size: 25px;
+}
+.checkout button {
+  height: 50%;
+  background-color: rebeccapurple;
+  color: #fff;
+  border-radius: 10%;
+}
+.value {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  padding: 15px;
+}
+.hr-line {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.total {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+.Price {
+  text-align: left;
+  padding: 10% 15%;
+}
+.crtdes {
+  display: flex;
+}
