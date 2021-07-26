@@ -1,4 +1,3 @@
-// import React from 'react'
 import {createStore} from 'redux';
 import reducres from "./reducers/index";
 const store =createStore(reducres,{});

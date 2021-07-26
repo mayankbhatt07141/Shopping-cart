@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Course from './Components/Course';
+import Homepage from './Components/Homepage';
 import Wishlist from './Components/Wishlist';
 import Cart from './Components/Cart';
 import Profile from './Components/Profile';
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Header/>
       <Switch>
-        <Route path="/" exact component={Course}></Route>
+        <Route path="/" exact component={Homepage}></Route>
         <Route path='/wishlist' component={Wishlist}></Route>
         <Route path='/cart' component={Cart}></Route>
         <Route path='/profile' component={Profile}></Route>

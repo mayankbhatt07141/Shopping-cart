@@ -2,13 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* background-color: rgb(30, 30, 53); */
+  background-color: rgb(170, 164, 82);
 }
-.logo {
-  height: 8%;
-  width: 8%;
-  margin-left: 2%;
+
+.logo-alternative {
+  color: rgba(189, 45, 45);
 }
 
 .Nav-links {

@@ -1,12 +1,12 @@
 import React from "react";
 import "./Header.css";
-import logo from "../images/icon.png";
+// import logo from "../images/icon.png";
 import { Link } from "react-router-dom";
 function Header() {
   return (
     <div>
       <header className="Navbar">
-        <img src={logo} alt="" className="logo"></img>
+        <h1 className="logo-alternative">R.R courses</h1>
         <div className="Nav-links">
           <Link to="/">
             <nav className="course-link">Courses</nav>
@@ -22,7 +22,7 @@ function Header() {
           </Link>
         </div>
       </header>
-      <div>choose course</div>
+      
     </div>
   );
 }

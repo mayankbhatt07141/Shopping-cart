@@ -1,4 +1,4 @@
-export const ActionTypes={
+
+export  const ActionTypes={
     addCourse : "addCourse",
-    removeCourse: "removeCourse"
 }
