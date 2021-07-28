@@ -24,4 +24,10 @@
 
 .courselist {
   width: 70%;
+  height: 470px;
+  overflow-y: scroll;
+}
+
+.courselist::-webkit-scrollbar {
+  display: none;
 }

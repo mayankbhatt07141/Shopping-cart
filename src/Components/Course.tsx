@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Course.css";
 import Blankheart from "../images/heart1.png";
 import Redheart from "../images/redheart.png";
-// import Profileicon from "../images/man-user.png";
 import { addItemCart, removeItemCart } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import {

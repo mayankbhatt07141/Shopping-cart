@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Cartdetails.css";
 
+import { removeallCart } from "../redux/actions/cartActions";
+
 function Cartdetails() {
+  let dispatch = useDispatch();
   let cart = useSelector((state: any) => state.cart);
   let allproducts = useSelector((state: any) => state.allproducts);
   let [cartitems, setCartitems] = useState([]);
@@ -25,7 +28,7 @@ function Cartdetails() {
               <div className="cart-item">
                 {value.description}
                 <span>
-                  <strong>Rs {value.actual_price}/-</strong>
+                  <strong>Rs. {value.actual_price}/-</strong>
                 </span>
               </div>
               <hr className="hr-line" />
@@ -48,7 +51,11 @@ function Cartdetails() {
           </div>
         </div>
 
-        <button>
+        <button
+          onClick={() => {
+            dispatch(removeallCart());
+          }}
+        >
           <span>GO TO CHECKOUT</span>
         </button>
       </div>

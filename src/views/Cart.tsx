@@ -1,65 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeallCart } from "../redux/actions/cartActions";
 import Deleteicon from "../images/delete.png";
-// import Cartdetails from "../Components/Cartdetails.";
-// import "./Homepage";
-
 import "./Cart.css";
-// import "./Cartdetails.css";
 
 function Cart() {
-  let intobj = [
-    {
-      actual_price: "840.00",
-      author: "Arthur Hansen",
-      description: "Tempore sed unde laboriosam qui consequatur rem.",
-      details:
-        "Incidunt enim veniam.     Id fugit odit ipsam et iusto esse est dignissimos eum.      Totam ut est nobis consequatur aut consequuntur.      Et nesciunt tempore.     Eius blanditiis et minima adipisci est dolorum itaque omnis quidem.\n       \rInventore vel aperiam necessitatibus consequuntur tempora est est repudiandae quas.        Quis natus eos accusantium eaque quaerat tempora suscipit sed. Deserunt volu",
-    },
-    {
-      actual_price: "840.00",
-      author: "Arthur Hansen",
-      description: "Tempore sed unde laboriosam qui consequatur rem.",
-      details:
-        "Incidunt enim veniam.     Id fugit odit ipsam et iusto esse est dignissimos eum.      Totam ut est nobis consequatur aut consequuntur.      Et nesciunt tempore.     Eius blanditiis et minima adipisci est dolorum itaque omnis quidem.\n       \rInventore vel aperiam necessitatibus consequuntur tempora est est repudiandae quas.        Quis natus eos accusantium eaque quaerat tempora suscipit sed. Deserunt volu",
-    },
-    {
-      actual_price: "840.00",
-      author: "Arthur Hansen",
-      description: "Tempore sed unde laboriosam qui consequatur rem.",
-      details:
-        "Incidunt enim veniam.     Id fugit odit ipsam et iusto esse est dignissimos eum.      Totam ut est nobis consequatur aut consequuntur.      Et nesciunt tempore.     Eius blanditiis et minima adipisci est dolorum itaque omnis quidem.\n       \rInventore vel aperiam necessitatibus consequuntur tempora est est repudiandae quas.        Quis natus eos accusantium eaque quaerat tempora suscipit sed. Deserunt volu",
-    },
-  ];
+  let dispatch = useDispatch();
+
+  const cart = useSelector((state: any) => state.cart);
+  const allproducts = useSelector((state: any) => state.allproducts);
+  const [cartitems, setCartitems] = useState([]);
+
+  useEffect(() => {
+    let items = allproducts.filter((item: any) => {
+      if (cart.indexOf(parseInt(item.id)) !== -1) return true;
+      return false;
+    });
+    setCartitems(items);
+  }, [cart, allproducts]);
+
   return (
-    <div className="Box">
+    <div className="cart-container">
       <div className="sub-header">
         <h3 className="subheader-title">
           Discover new courses on redux and react
         </h3>
       </div>
 
-      <div className="Cart-container">
+      <div className="cart-list">
         <p className="TotalCart">
-          <strong> {intobj.length} Courses in Cart</strong>
+          <strong> {cartitems.length} Courses in Cart</strong>
         </p>
-        <div className="carts">
-          {intobj.map((value: any, index: number) => {
+        <div className="cartitems">
+          {cartitems.map((value: any, index: number) => {
             return (
-              <div className="crtdeta">
-                {value.description}
-                <div className="Move">
-                  <a>Move to Wishlist</a>
-                </div>
-
-                <div className="price">
-                  <strong>RS-{value.actual_price}-/</strong>
-                </div>
+              <div className="cartdata">
+                <p className="cartitem-title">{value.title}</p>
+                <p className="Move">Move to Wishlist</p>
+                <p className="price">
+                  <strong>Rs.{value.actual_price}-/</strong>
+                </p>
                 <button className="Delete">
-                  <img src={Deleteicon}></img>
+                  <img src={Deleteicon} alt="delete" />
                 </button>
-                <div>
-                  <hr className="hr-line" />
-                </div>
               </div>
             );
           })}
@@ -68,14 +51,19 @@ function Cart() {
           <div className="value">
             Total Cart Value <br />
             <div className="Price">
-              {intobj.reduce((sum: number, val: any) => {
-                return sum + parseInt(val.actual_price);
+              {cartitems.reduce((sum: number, val: any) => {
+                if (val.discounted_price)
+                  return sum + (val.actual_price - val.discounted_price);
+                else return sum;
               }, 0)}
             </div>
           </div>
-
           <div className="checkout">
-            <button>
+            <button
+              onClick={() => {
+                dispatch(removeallCart());
+              }}
+            >
               <span>GO TO CHECKOUT</span>
             </button>
           </div>

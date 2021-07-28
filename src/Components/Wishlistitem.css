@@ -22,14 +22,6 @@
 }
 
 .addtocart-button {
-  width: 20%;
-}
-
-.wishlistitem-container img {
-  width: auto;
-}
-
-.addtocart-button {
   display: flex;
   background-color: #264f73;
   font-size: 15px;
