@@ -1,11 +1,11 @@
-export default function cartReducers(
+export default function wishlistReducers(
   state: number[] = [],
   action: { type: string; id: string }
 ) {
   switch (action.type) {
-    case "additemcart":
+    case "additemwishlist":
       return [...state, parseInt(action.id)];
-    case "removeitemcart":
+    case "removeitemwishlist":
       var index = state.indexOf(parseInt(action.id));
       if (index !== -1) {
         let newlist = [...state];
@@ -13,8 +13,6 @@ export default function cartReducers(
         return newlist;
       }
       return state;
-    case "removeallcart":
-      return [];
     default:
       return state;
   }

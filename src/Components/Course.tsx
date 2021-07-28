@@ -3,27 +3,46 @@ import "./Course.css";
 import Blankheart from "../images/heart1.png";
 import Redheart from "../images/redheart.png";
 import { addItemCart, removeItemCart } from "../redux/actions/cartActions";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addItemWishlist,
+  removeItemWishlist,
+} from "../redux/actions/wishlistActions";
+
 function Course(props: any) {
-    const CartCourses = useSelector((state: any) => state.cart);
-  function courseExistCart(){
-    for(let i of CartCourses){
-        if(i==props.obj.id){
-            return false;
-        }
+  const CartCourses = useSelector((state: any) => state.cart);
+  const wishlist = useSelector((state: any) => state.wishlist);
+  function courseExistCart() {
+    for (let i of CartCourses) {
+      if (i == props.obj.id) {
+        return false;
+      }
     }
     return true;
   }
-  const [icon, seticon] = useState(true);
-  const [toggleaddtocartbutton, setToggleaddtocartbutton] = useState(courseExistCart());
+  function courseExistWihlist() {
+    for (let i of wishlist) {
+      if (i == props.obj.id) {
+        return false;
+      }
+    }
+    return true;
+  }
+  const [icon, seticon] = useState(courseExistWihlist());
+  const [toggleaddtocartbutton, setToggleaddtocartbutton] = useState(
+    courseExistCart()
+  );
   const dispatch = useDispatch();
   function toggle() {
     if (icon == true) {
+      // alert("wishlisted");
+      dispatch(addItemWishlist(props.obj.id));
+    } else {
+      dispatch(removeItemWishlist(props.obj.id));
+      // alert("REMOVED wishlisted");
     }
     seticon(!icon);
   }
-  
   function addcartbutton() {
     alert("item added to cart");
     if (toggleaddtocartbutton == true) {
@@ -31,7 +50,7 @@ function Course(props: any) {
     }
     setToggleaddtocartbutton(!toggleaddtocartbutton);
   }
-  
+
   function removecartbutton() {
     alert("item removed from cart");
     dispatch(removeItemCart(parseInt(props.obj.id)));
