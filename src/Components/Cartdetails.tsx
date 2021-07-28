@@ -12,7 +12,7 @@ function Cartdetails() {
       (item: any) => cart.indexOf(parseInt(item.id)) !== -1
     );
     setCartitems(cartproducts);
-  }, [cart]);
+  }, [cart, allproducts]);
   return (
     <div className="cartdetails-container">
       <div className="cart-heading">YOUR CART DETAILS</div>
