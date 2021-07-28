@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Course.css";
 import Blankheart from "../images/heart1.png";
 import Redheart from "../images/redheart.png";
+import Profileicon from "../images/man-user.png";
 import { addItemCart, removeItemCart } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -62,8 +63,10 @@ function Course(props: any) {
         <p>
           <b>{props.obj.title}</b>
         </p>
-        <p>
-          {props.obj.tags[0]} {props.obj.tags[1]} {props.obj.tags[2]}
+        <p className="tagbuttons">
+          <button className="tags">{props.obj.tags[0]}</button>
+          <button className="tags">{props.obj.tags[1]}</button>
+          <button className="tags">{props.obj.tags[2]}</button>
         </p>
       </div>
       <p>{props.obj.author}</p>

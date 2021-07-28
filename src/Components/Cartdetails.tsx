@@ -16,18 +16,23 @@ function Cartdetails() {
   return (
     <div className="container">
       <div className="Cart">YOUR CART DETAILS</div>
+      <hr className="hr-line" />
+
       <div className="Coursecart">
         {cartitems.map((value: any, index: number) => {
           return (
             <div>
-              {value.description}
-              <span>{value.actual_price}</span>
+              <div className="crtitem">
+                {value.description}
+                <span>
+                  <strong>Rs {value.actual_price}/-</strong>
+                </span>
+              </div>
+              <hr className="hr-line" />
             </div>
           );
         })}
       </div>
-
-      <hr className="hr-line" />
 
       <div className="total">
         <div className="value">

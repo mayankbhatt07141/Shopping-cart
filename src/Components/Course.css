@@ -1,19 +1,33 @@
 .course-list {
   background-color: white;
-  height: 80px;
+  height: auto;
   background-color: beige;
   /* width: 80%; */
   display: grid;
   grid-template-columns: 30% 10% 20% 10% 10% 10%;
-  /* justify-content: space-around; */
+  justify-content: space-evenly;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 75%);
+  margin: 1% 5px;
 }
 .heart-button {
   background-color: beige;
   border: none;
   outline: none;
+  height: inherit;
 }
 .addtocart-button {
-  background-color: rgba(79, 79, 192, 0.521);
-  height: 35px;
-  font-size: 23px;
+  background-color: #264f73;
+  height: 50px;
+  font-size: 18px;
+  margin: 17px;
+  color: #eff4f5;
+}
+.tags {
+  background-color: #264f73;
+  color: #eff4f5;
+  border-radius: 10%;
+}
+.tagbuttons {
+  display: flex;
+  justify-content: space-around;
 }

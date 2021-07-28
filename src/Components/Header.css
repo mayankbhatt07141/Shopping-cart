@@ -1,8 +1,8 @@
 .Navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background-color: rgb(170, 164, 82);
+  background-color: #264f73;
 }
 /* .course-link {
   float: left;
@@ -10,15 +10,19 @@
   height: 0px;
 } */
 .logo-alternative {
-  color: rgba(189, 45, 45);
+  color: #eff4f5;
 }
 
 .Nav-links {
   display: flex;
   align-items: center;
   width: 40%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: 22px;
+}
+.Nav-links a {
+  text-decoration: none;
+  color: #eff4f5;
 }
 
 .container {

@@ -1,17 +1,23 @@
 .container {
   flex-direction: column;
   height: auto;
-  width: 50vh;
+  width: 25%;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 75%);
   margin: 3%;
+  float: right;
 
   background-color: #fff;
   display: flex;
-  color: rebeccapurple;
+  color: #264f73;
   font-size: 29px;
 }
 .Cart {
   font-size: 25px;
+}
+.crtitem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
 }
 .checkout {
   padding: 15px;
@@ -19,7 +25,7 @@
 }
 .checkout button {
   height: 50%;
-  background-color: rebeccapurple;
+  background-color: #264f73;
   color: #fff;
   border-radius: 10%;
 }
@@ -41,7 +47,6 @@
   grid-row-gap: 0;
 }
 .Price {
-  text-align: left;
   padding: 10% 15%;
 }
 .crtdes {
