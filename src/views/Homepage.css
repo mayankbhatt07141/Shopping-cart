@@ -1,0 +1,27 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.sub-header {
+  display: flex;
+  background-color: rgb(113, 178, 187);
+  align-items: flex-start;
+  color: white;
+  height: 50px;
+  width: 90%;
+  padding: 0px 10px;
+  border-radius: 1px;
+}
+.courselist-cart {
+  margin-top: 5px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.courselist {
+  width: 70%;
+}

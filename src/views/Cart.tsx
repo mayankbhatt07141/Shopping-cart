@@ -1,10 +1,10 @@
 import React from "react";
 import Deleteicon from "../images/delete.png";
-import Cartdetails from "./Cartdetails";
-import "./Homepage";
+// import Cartdetails from "../Components/Cartdetails.";
+// import "./Homepage";
 
 import "./Cart.css";
-import "./Cartdetails.css";
+// import "./Cartdetails.css";
 
 function Cart() {
   let intobj = [

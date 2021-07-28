@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Course.css";
 import Blankheart from "../images/heart1.png";
 import Redheart from "../images/redheart.png";
-import Profileicon from "../images/man-user.png";
+// import Profileicon from "../images/man-user.png";
 import { addItemCart, removeItemCart } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -11,80 +11,81 @@ import {
 } from "../redux/actions/wishlistActions";
 
 function Course(props: any) {
-  const CartCourses = useSelector((state: any) => state.cart);
+  const cart = useSelector((state: any) => state.cart);
   const wishlist = useSelector((state: any) => state.wishlist);
   function courseExistCart() {
-    for (let i of CartCourses) {
-      if (i == props.obj.id) {
+    for (let i of cart) {
+      if (i === parseInt(props.obj.id)) {
         return false;
       }
     }
     return true;
   }
-  function courseExistWihlist() {
+  function courseExistinWishlist() {
     for (let i of wishlist) {
-      if (i == props.obj.id) {
+      if (i === parseInt(props.obj.id)) {
         return false;
       }
     }
     return true;
   }
-  const [icon, seticon] = useState(courseExistWihlist());
-  const [toggleaddtocartbutton, setToggleaddtocartbutton] = useState(
-    courseExistCart()
-  );
+  const [isWishlisted, setIsWishlisted] = useState(courseExistinWishlist());
+  const [isCarted, setIsCarted] = useState(courseExistCart());
   const dispatch = useDispatch();
   function toggle() {
-    if (icon == true) {
+    if (isWishlisted === true) {
       // alert("wishlisted");
       dispatch(addItemWishlist(props.obj.id));
     } else {
       dispatch(removeItemWishlist(props.obj.id));
       // alert("REMOVED wishlisted");
     }
-    seticon(!icon);
+    setIsWishlisted(!isWishlisted);
   }
   function addcartbutton() {
     alert("item added to cart");
-    if (toggleaddtocartbutton == true) {
+    if (isCarted === true) {
       dispatch(addItemCart(parseInt(props.obj.id)));
     }
-    setToggleaddtocartbutton(!toggleaddtocartbutton);
+    setIsCarted(!isCarted);
   }
 
   function removecartbutton() {
     alert("item removed from cart");
     dispatch(removeItemCart(parseInt(props.obj.id)));
-    setToggleaddtocartbutton(!toggleaddtocartbutton);
+    setIsCarted(!isCarted);
   }
   return (
-    <div className=" course-list">
-      <div className="title-tags">
+    <div className=" course-container">
+      <div className="course-title">
         <p>
           <b>{props.obj.title}</b>
         </p>
-        <p className="tagbuttons">
-          <button className="tags">{props.obj.tags[0]}</button>
-          <button className="tags">{props.obj.tags[1]}</button>
-          <button className="tags">{props.obj.tags[2]}</button>
-        </p>
+        <div className="tagbuttons">
+          {props.obj.tags.map((val: string, index: number) => {
+            return <p className="tags">{val}</p>;
+          })}
+        </div>
       </div>
-      <p>{props.obj.author}</p>
-      <button className="heart-button" onClick={toggle}>
-        <img className="heart-icon" src={icon ? Blankheart : Redheart} />
-      </button>
-      <p>
+      <p className="course-author">{props.obj.author}</p>
+      <img
+        onClick={toggle}
+        className="heart-icon"
+        src={isWishlisted ? Blankheart : Redheart}
+        alt="wishlist"
+      />
+      <p className="course-price">
         <b>
           {props.obj.discounted_price
             ? props.obj.discounted_price
             : props.obj.actual_price}
         </b>
       </p>
-      <p>
+      <p className="course-price">
         <s>{props.obj.discounted_price ? props.obj.actual_price : "-"}</s>
       </p>
-      <div>
-        {toggleaddtocartbutton ? (
+      <div className="cartbutton-group">
+        {isCarted ? (
           <button className="addtocart-button" onClick={addcartbutton}>
             Add to cart
           </button>

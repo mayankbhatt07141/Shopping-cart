@@ -14,15 +14,15 @@ function Cartdetails() {
     setCartitems(cartproducts);
   }, [cart]);
   return (
-    <div className="container">
-      <div className="Cart">YOUR CART DETAILS</div>
+    <div className="cartdetails-container">
+      <div className="cart-heading">YOUR CART DETAILS</div>
       <hr className="hr-line" />
 
-      <div className="Coursecart">
+      <div className="cart-list">
         {cartitems.map((value: any, index: number) => {
           return (
             <div>
-              <div className="crtitem">
+              <div className="cart-item">
                 {value.description}
                 <span>
                   <strong>Rs {value.actual_price}/-</strong>
@@ -34,21 +34,23 @@ function Cartdetails() {
         })}
       </div>
 
-      <div className="total">
-        <div className="value">
-          Total Cart Value <br />
-          <div className="Price">
-            {cartitems.reduce((sum: number, val: any) => {
-              return sum + parseInt(val.actual_price);
-            }, 0)}
+      <div className="items-sum-container">
+        <div className="sum-value">
+          Cart Value <br />
+          <div className="price">
+            <b>
+              Rs.
+              {cartitems.reduce((sum: number, val: any) => {
+                return sum + parseInt(val.actual_price);
+              }, 0)}
+              /-
+            </b>
           </div>
         </div>
 
-        <div className="checkout">
-          <button>
-            <span>GO TO CHECKOUT</span>
-          </button>
-        </div>
+        <button>
+          <span>GO TO CHECKOUT</span>
+        </button>
       </div>
     </div>
   );

@@ -1,33 +1,52 @@
-.course-list {
-  background-color: white;
-  height: auto;
+.course-container {
   background-color: beige;
-  /* width: 80%; */
-  display: grid;
-  grid-template-columns: 30% 10% 20% 10% 10% 10%;
-  justify-content: space-evenly;
-  box-shadow: 0 0 5px 0 rgb(0 0 0 / 75%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 1px 1px 5px grey;
   margin: 1% 5px;
 }
+
+.course-title {
+  width: 35%;
+}
+
+.course-author {
+  width: 20%;
+  align-content: center;
+}
 .heart-button {
-  background-color: beige;
-  border: none;
-  outline: none;
-  height: inherit;
+  background-color: inherit;
+}
+
+.course-price {
+  width: 15%;
 }
 .addtocart-button {
+  display: flex;
   background-color: #264f73;
-  height: 50px;
-  font-size: 18px;
-  margin: 17px;
+  font-size: 15px;
   color: #eff4f5;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 2px;
 }
+
 .tags {
   background-color: #264f73;
   color: #eff4f5;
-  border-radius: 10%;
+  border-radius: 2px;
+  padding: 2px 4px;
 }
 .tagbuttons {
   display: flex;
   justify-content: space-around;
+}
+
+.cartbutton-group {
+  width: 20%;
+}
+
+.addtocart-button:hover {
+  background-color: #468fcf;
 }

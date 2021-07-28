@@ -1,7 +1,7 @@
 import React from "react";
-import Cartdetails from "./Cartdetails";
+import Cartdetails from "../Components/Cartdetails";
 import "./Wishlist.css";
-import Wishlistdetails from "./Wishlistdetails";
+import Wishlistdetails from "../Components/Wishlistdetails";
 function Wishlist() {
   return (
     <div>
