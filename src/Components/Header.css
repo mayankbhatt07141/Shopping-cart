@@ -4,7 +4,11 @@
   align-items: center;
   background-color: rgb(170, 164, 82);
 }
-
+/* .course-link {
+  float: left;
+  width: 1px;
+  height: 0px;
+} */
 .logo-alternative {
   color: rgba(189, 45, 45);
 }

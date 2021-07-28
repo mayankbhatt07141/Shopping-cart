@@ -1,5 +1,5 @@
 export default function cartReducers(
-  state: number[] = [1, 2],
+  state: number[] = [],
   action: { type: string; id: string }
 ) {
   switch (action.type) {

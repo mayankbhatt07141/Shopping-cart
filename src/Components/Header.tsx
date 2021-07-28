@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import cart from "../images/cart.png";
 // import logo from "../images/icon.png";
 import { Link } from "react-router-dom";
 function Header() {
@@ -15,7 +16,7 @@ function Header() {
             <nav>Wishlist</nav>
           </Link>
           <Link to="/cart">
-            <nav>cart</nav>
+            <nav><img className="icon-cart-image" src={cart}/></nav>
           </Link>
           <Link to="/profile">
             <nav>Profile</nav>

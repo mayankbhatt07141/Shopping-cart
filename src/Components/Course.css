@@ -4,8 +4,13 @@
   background-color: beige;
   /* width: 80%; */
   display: grid;
-  grid-template-columns: 40% 20% 10% 20%;
+  grid-template-columns: 30% 10% 20% 10% 10% 10%;
   /* justify-content: space-around; */
+}
+.heart-button {
+  background-color: beige;
+  border: none;
+  outline: none;
 }
 .addtocart-button {
   background-color: rgba(79, 79, 192, 0.521);
