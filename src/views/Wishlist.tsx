@@ -30,7 +30,9 @@ function Wishlist() {
             return <Wishlistitem key={val.id} value={val} />;
           })}
         </div>
-        <Cartdetails />
+        <div className="cartdetails">
+          <Cartdetails />
+        </div>
       </div>
     </div>
   );

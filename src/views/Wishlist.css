@@ -6,8 +6,9 @@
   width: 100%;
 }
 
-.wishlist-course {
+.wishlist-courses {
   display: flex;
+  flex-direction: column;
   width: 70%;
 }
 
@@ -16,6 +17,8 @@
   flex-direction: row;
   justify-content: center;
   width: 90%;
+  gap: 10px;
+  margin-top: 5px;
 }
 
 .wishlist-subheader {
@@ -27,4 +30,11 @@
   width: 90%;
   padding: 0px 10px;
   border-radius: 1px;
+}
+
+.cartdetails {
+  width: 30%;
+  /* width: auto; */
+  /* position: relative; */
+  /* left: 500px; */
 }

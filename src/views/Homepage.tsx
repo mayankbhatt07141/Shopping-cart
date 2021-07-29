@@ -31,7 +31,9 @@ function Homepage() {
             return <Course key={index} obj={val} />;
           })}
         </div>
-        <Cartdetails />
+        <div className="home-cartdetails">
+          <Cartdetails />
+        </div>
       </div>
     </div>
   );
