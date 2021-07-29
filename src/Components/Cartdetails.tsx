@@ -28,7 +28,13 @@ function Cartdetails() {
               <div className="cart-item">
                 {value.description}
                 <span>
-                  <strong>Rs. {value.actual_price}/-</strong>
+                  <strong>
+                    Rs.{" "}
+                    {value.discounted_price
+                      ? value.discounted_price
+                      : value.actual_price}
+                    /-
+                  </strong>
                 </span>
               </div>
               <hr className="hr-line" />
@@ -44,7 +50,9 @@ function Cartdetails() {
             <b>
               Rs.
               {cartitems.reduce((sum: number, val: any) => {
-                return sum + parseInt(val.actual_price);
+                if (val.discounted_price) {
+                  return sum + parseInt(val.discounted_price);
+                } else return sum + parseInt(val.actual_price);
               }, 0)}
               /-
             </b>

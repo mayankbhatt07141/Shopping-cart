@@ -1,8 +1,6 @@
-import React from "react";
 import "./Header.css";
 import cart from "../images/cart.png";
 import profileicon from "../images/profile.png";
-// import logo from "../images/icon.png";
 import { Link } from "react-router-dom";
 function Header() {
   return (

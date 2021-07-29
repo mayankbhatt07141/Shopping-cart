@@ -22,15 +22,10 @@ function Cart() {
   return (
     <div className="cart-container">
       <div className="sub-header">
-        <h3 className="subheader-title">
-          Discover new courses on redux and react
-        </h3>
+        <h3 className="subheader-title">{cartitems.length} courses in cart</h3>
       </div>
 
       <div className="cart-list">
-        <p className="TotalCart">
-          <strong> {cartitems.length} Courses in Cart</strong>
-        </p>
         <div className="cartitems">
           {cartitems.map((value: any, index: number) => {
             return (
@@ -38,7 +33,13 @@ function Cart() {
                 <p className="cartitem-title">{value.title}</p>
                 <p className="Move">Move to Wishlist</p>
                 <p className="price">
-                  <strong>Rs.{value.actual_price}-/</strong>
+                  <strong>
+                    Rs.
+                    {value.discounted_price
+                      ? value.discounted_price
+                      : value.actual_price}
+                    -/
+                  </strong>
                 </p>
                 <button className="Delete">
                   <img src={Deleteicon} alt="delete" />
@@ -53,14 +54,15 @@ function Cart() {
             <div className="Price">
               {cartitems.reduce((sum: number, val: any) => {
                 if (val.discounted_price)
-                  return sum + (val.actual_price - val.discounted_price);
-                else return sum;
+                  return sum + parseInt(val.discounted_price);
+                else return sum + parseInt(val.actual_price);
               }, 0)}
             </div>
           </div>
           <div className="checkout">
             <button
               onClick={() => {
+                if (cartitems.length) alert("order successfull");
                 dispatch(removeallCart());
               }}
             >
