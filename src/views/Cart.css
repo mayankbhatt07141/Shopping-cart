@@ -24,6 +24,7 @@
 }
 .Move {
   color: #00f;
+  cursor: pointer;
 }
 .totalprice {
   display: inline-flex;

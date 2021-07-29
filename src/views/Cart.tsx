@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeallCart } from "../redux/actions/cartActions";
+import { removeallCart, removeItemCart } from "../redux/actions/cartActions";
 import Deleteicon from "../images/delete.png";
 import "./Cart.css";
+import {
+  addItemWishlist,
+  removeItemWishlist,
+} from "../redux/actions/wishlistActions";
 
 function Cart() {
   let dispatch = useDispatch();
@@ -31,7 +35,15 @@ function Cart() {
             return (
               <div className="cartdata">
                 <p className="cartitem-title">{value.title}</p>
-                <p className="Move">Move to Wishlist</p>
+                <p
+                  className="Move"
+                  onClick={() => {
+                    dispatch(addItemWishlist(parseInt(value.id)));
+                    dispatch(removeItemCart(parseInt(value.id)));
+                  }}
+                >
+                  Move to Wishlist
+                </p>
                 <p className="price">
                   <strong>
                     Rs.
@@ -42,7 +54,14 @@ function Cart() {
                   </strong>
                 </p>
                 <button className="Delete">
-                  <img src={Deleteicon} alt="delete" />
+                  <img
+                    src={Deleteicon}
+                    alt="delete"
+                    onClick={() => {
+                      console.log("vkdsn");
+                      dispatch(removeItemCart(parseInt(value.id)));
+                    }}
+                  />
                 </button>
               </div>
             );
