@@ -7,6 +7,7 @@ import Wishlist from "./views/Wishlist";
 import Cart from "./views/Cart";
 import Profile from "./views/Profile";
 import Coursedetails from "./views/Coursedetails";
+import Page404 from "./Components/Page404";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" component={Cart}></Route>
           <Route path="/profile" component={Profile}></Route>
           <Route path="/courses/:id" component={Coursedetails}></Route>
+          <Route path="/:any" component={Page404} />
         </Switch>
       </div>
     </Router>
