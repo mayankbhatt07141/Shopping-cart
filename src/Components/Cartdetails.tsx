@@ -25,7 +25,7 @@ function Cartdetails() {
         {cartitems.map((value: any, index: number) => {
           return (
             <div>
-              <div className="cart-item">
+              <div className="cart-item" key={index}>
                 {value.description}
                 <span>
                   <strong>

@@ -8,6 +8,7 @@ import {
   addItemWishlist,
   removeItemWishlist,
 } from "../redux/actions/wishlistActions";
+import { Link } from "react-router-dom";
 
 function Course(props: any) {
   const cart = useSelector((state: any) => state.cart);
@@ -33,11 +34,9 @@ function Course(props: any) {
   const dispatch = useDispatch();
   function toggle() {
     if (isWishlisted === true) {
-      // alert("wishlisted");
       dispatch(addItemWishlist(props.obj.id));
     } else {
       dispatch(removeItemWishlist(props.obj.id));
-      // alert("REMOVED wishlisted");
     }
     setIsWishlisted(!isWishlisted);
   }
@@ -54,6 +53,7 @@ function Course(props: any) {
     dispatch(removeItemCart(parseInt(props.obj.id)));
     setIsCarted(!isCarted);
   }
+
   return (
     <div className=" course-container">
       <div className="course-title">
@@ -62,7 +62,11 @@ function Course(props: any) {
         </p>
         <div className="tagbuttons">
           {props.obj.tags.map((val: string, index: number) => {
-            return <p className="tags">{val}</p>;
+            return (
+              <p className="tags" key={index}>
+                {val}
+              </p>
+            );
           })}
         </div>
       </div>
@@ -93,6 +97,9 @@ function Course(props: any) {
             Remove
           </button>
         )}
+        <Link to={`/courses/${props.obj.id}`}>
+          <p className="coursedetails">{">"}</p>
+        </Link>
       </div>
     </div>
   );

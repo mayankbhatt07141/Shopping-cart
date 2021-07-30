@@ -6,6 +6,7 @@ import Homepage from "./views/Homepage";
 import Wishlist from "./views/Wishlist";
 import Cart from "./views/Cart";
 import Profile from "./views/Profile";
+import Coursedetails from "./views/Coursedetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/wishlist" component={Wishlist}></Route>
           <Route path="/cart" component={Cart}></Route>
           <Route path="/profile" component={Profile}></Route>
+          <Route path="/courses/:id" component={Coursedetails}></Route>
         </Switch>
       </div>
     </Router>
