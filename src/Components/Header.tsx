@@ -16,12 +16,16 @@ function Header() {
           </Link>
           <Link to="/cart">
             <nav>
-              <img className="icon-cart-image" src={cart} />
+              <img className="icon-cart-image" src={cart} alt="cart icon" />
             </nav>
           </Link>
           <Link to="/profile">
             <nav>
-              <img className="icon-profile-image" src={profileicon} />
+              <img
+                className="icon-profile-image"
+                src={profileicon}
+                alt="profile icon"
+              />
             </nav>
           </Link>
         </div>

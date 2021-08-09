@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeallCart, removeItemCart } from "../redux/actions/cartActions";
 import Deleteicon from "../images/delete.png";
 import "./Cart.css";
-import {
-  addItemWishlist,
-  removeItemWishlist,
-} from "../redux/actions/wishlistActions";
+import { addItemWishlist } from "../redux/actions/wishlistActions";
 
 function Cart() {
   let dispatch = useDispatch();

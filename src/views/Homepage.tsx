@@ -15,7 +15,7 @@ function Homepage() {
   };
   useEffect(() => {
     fetchcourses();
-  }, []);
+  });
 
   const courses = useSelector((state: any) => state.allproducts);
   return (

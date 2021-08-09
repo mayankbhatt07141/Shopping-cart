@@ -9,7 +9,6 @@ import {
   removeItemWishlist,
 } from "../redux/actions/wishlistActions";
 import { Link } from "react-router-dom";
-
 function Course(props: any) {
   const cart = useSelector((state: any) => state.cart);
   const wishlist = useSelector((state: any) => state.wishlist);
@@ -97,7 +96,12 @@ function Course(props: any) {
             Remove
           </button>
         )}
-        <Link to={`/courses/${props.obj.id}`}>
+        <Link
+          to={{
+            pathname: "/Coursedetails",
+            state: props.obj,
+          }}
+        >
           <p className="coursedetails">{">"}</p>
         </Link>
       </div>

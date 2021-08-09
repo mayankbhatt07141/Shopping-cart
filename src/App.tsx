@@ -19,7 +19,7 @@ function App() {
           <Route path="/wishlist" component={Wishlist}></Route>
           <Route path="/cart" component={Cart}></Route>
           <Route path="/profile" component={Profile}></Route>
-          <Route path="/courses/:id" component={Coursedetails}></Route>
+          <Route path="/Coursedetails" component={Coursedetails}></Route>
           <Route path="/:any" component={Page404} />
         </Switch>
       </div>

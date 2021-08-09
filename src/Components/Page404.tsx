@@ -6,7 +6,7 @@ import "./Page404.css";
 const Page404 = () => {
   return (
     <div>
-      <img src={Error}></img>
+      <img src={Error} alt="404 page "></img>
       <h1>Page 404 Not Found</h1>
       <p>
         The Page you are looking for doesn't exist or an other error occured.
