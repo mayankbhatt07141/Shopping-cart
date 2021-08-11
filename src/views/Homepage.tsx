@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Homepage.css";
 import Course from "../Components/Course";
 import { useSelector } from "react-redux";
@@ -8,6 +9,9 @@ import Cartdetails from "../Components/Cartdetails";
 
 function Homepage() {
   const dispatch = useDispatch();
+  const courses = useSelector((state: any) => state.allproducts);
+
+  const [init, setInit] = useState(true);
   const fetchcourses = () => {
     fetch("https://www.amock.io/api/skesarwani/api/courses")
       .then((response) => response.json())
@@ -15,9 +19,18 @@ function Homepage() {
   };
   useEffect(() => {
     fetchcourses();
-  });
+  }, []);
 
-  const courses = useSelector((state: any) => state.allproducts);
+  useEffect(() => {
+    console.log(courses);
+
+    if (courses.length > 0) {
+      setInit(false);
+    }
+  }, [courses]);
+
+  if (init) return <h1>Initialize...</h1>;
+
   return (
     <div className="homepage-container">
       <div className="sub-header">
